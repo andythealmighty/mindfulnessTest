@@ -98,54 +98,73 @@ var test = new Vue({
         },
         showResult: function() {
             var x = 0;
+            const question = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
             for (let i = 0; i < 21; i++) {
                 if(i == 1 || i == 4 || i == 6 || i == 7 || i == 8 || i == 14 || i == 18 || i == 20) {
                     if(this.qna[i].r == '1. 전혀 그렇지않다') {
                         x += 7;
+                        question[i] = 7;
                     }
                     if(this.qna[i].r == '2. 그렇지 않다') {
                         x += 6;
+                        question[i] = 6;
                     }
                     if(this.qna[i].r == '3. 약간 그렇지 않다') {
                         x += 5;
+                        question[i] = 5;
                     }
                     if(this.qna[i].r == '4. 보통이다') {
                         x += 4;
+                        question[i] = 4;
                     }
                     if(this.qna[i].r == '5. 약간 그렇다') {
                         x += 3;
+                        question[i] = 3;
                     }
                     if(this.qna[i].r == '6. 그렇다') {
                         x += 2;
+                        question[i] = 2;
                     }
                     if(this.qna[i].r == '7. 매우 그렇다') {
                         x += 1;
+                        question[i] = 1;
                     }    
                 } else {
                     if(this.qna[i].r == '1. 전혀 그렇지않다') {
                         x += 1;
+                        question[i] = 1;
                     }
                     if(this.qna[i].r == '2. 그렇지 않다') {
                         x += 2;
+                        question[i] = 2;
                     }
                     if(this.qna[i].r == '3. 약간 그렇지 않다') {
                         x += 3;
+                        question[i] = 3;
                     }
                     if(this.qna[i].r == '4. 보통이다') {
                         x += 4;
+                        question[i] = 4;
                     }
                     if(this.qna[i].r == '5. 약간 그렇다') {
                         x += 5;
+                        question[i] = 5;
                     }
                     if(this.qna[i].r == '6. 그렇다') {
                         x += 6;
+                        question[i] = 6;
                     }
                     if(this.qna[i].r == '7. 매우 그렇다') {
                         x += 7;
+                        question[i] = 7;
                     }
                 }
             }
-            this.result =  '당신의 마음챙김 척도 점수는 '+ x +'점 입니다\n\n';
+            var a = question[2] + question[6] + question[10] + question[15];
+            var b = question[1] + question[5] + question[9] + question[13] + question[17] + question[20];
+            var c = question[3] + question[7] + question[11] + question[14] + question[18];
+            var d = question[0] + question[4] + question[8] + question[12] + question[16] + question[19] ;
+            this.result =  '당신의 마음챙김 점수는 '+ Math.round(x/147*100) +'점 입니다.\n각 영역별 점수를 살펴보면\n융통성 ' + Math.round(a/28*25) + '점\n 독창성 ' + Math.round(b/42*25) + '점\n몰입성 ' + Math.round(c/35*25) + '점\n탐구성 ' + Math.round(d/42*25) + '점입니다';
             $('#main').hide();
             $('#result').show();
         }
