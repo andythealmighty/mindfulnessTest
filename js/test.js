@@ -1,5 +1,5 @@
-var index = new Vue({
-    el: '#index',
+var test = new Vue({
+    el: '#test',
     data: {
         intro: '마음챙김 척도 테스트를 \n시작합니다!',
         title: '마음챙김 척도 테스트',
